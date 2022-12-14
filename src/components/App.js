@@ -1,9 +1,22 @@
 import React from "react";
+import { data } from "../data";
+import { Navbar, MovieCard } from "./index";
 
 function App() {
   return (
-    <div>
-      <h1>Movie App</h1>
+    <div className="App">
+      <Navbar />
+      <div className="main">
+        <div className="tabs">
+          <div className="tab">Movies</div>
+          <div className="tab">Favourites</div>
+        </div>
+        <div className="list">
+          {data.map((movie) => {
+            return <MovieCard movie={movie} />;
+          })}
+        </div>
+      </div>
     </div>
   );
 }
