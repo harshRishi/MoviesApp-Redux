@@ -2,6 +2,8 @@ import React from "react";
 import { data } from "../data";
 import { Navbar, MovieCard } from "./index";
 
+import { addMovies } from "../actions";
+
 class App extends React.Component {
   // use life cycle method
   componentDidMount() {
@@ -9,14 +11,10 @@ class App extends React.Component {
     const { store } = this.props; // check app to see we're getting store as an props in app component
     // {2}
     store.subscribe(() => {
-      console.log("Updated");
       this.forceUpdate(); // forcefully re-render the component
     });
     // dispatch action {1}
-    store.dispatch({
-      type: "ADD_MOVIES",
-      movies: data,
-    });
+    store.dispatch(addMovies(data));
   }
 
   render() {
