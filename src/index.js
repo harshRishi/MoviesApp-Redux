@@ -8,7 +8,7 @@ import moviesReducer from "./reducers/index";
 
 // we createStore receives reducers as an argument
 const store = createStore(moviesReducer);
-console.log(store);
+// console.log(store);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
