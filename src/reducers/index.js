@@ -1,8 +1,14 @@
-import { ADD_FAV, ADD_MOVIES, REMOVE_FAV } from "../actions/index";
+import {
+  ADD_FAV,
+  ADD_MOVIES,
+  REMOVE_FAV,
+  SET_SHOW_FAV,
+} from "../actions/index";
 
 const initialMovieState = {
   list: [],
   fav: [],
+  showFav: false,
 };
 
 export default function movies(state = initialMovieState, action) {
@@ -25,6 +31,11 @@ export default function movies(state = initialMovieState, action) {
       return {
         ...state,
         fav: newFav,
+      };
+    case SET_SHOW_FAV:
+      return {
+        ...state,
+        showFav: action.val,
       };
     default:
       return state;
